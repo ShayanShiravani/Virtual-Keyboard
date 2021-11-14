@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>virtual keyboard</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href=".\css\keyboardCss.css">
+	<script src=".\js\keyboardJs.js"></script>
+</head>
+<body>
+
+<div class="in">
+	<h1 >Welcom!</h1>
+	<p >Please press the keyboard image or text box for use of the virtual keyboard</p>
+	<span>Input:</span>
+	<input type="text" id="input" onclick="showKeyboard()" value="" autofocus="autofocus">
+	<img src=".\images\keyboard.png" style="width:20px;height:20px;" onclick="showKeyboard()">
+</div>
+
+<!-- <div id='keyboard'>
+	<input type="button" onclick="" value="~">
+	<input type="button" onclick="" value="1">
+	<input type="button" onclick="" value="2">
+	<input type="button" onclick="" value="3">
+	<input type="button" onclick="" value="4">
+	<input type="button" onclick="" value="5">
+	<input type="button" onclick="" value="6">
+	<input type="button" onclick="" value="7">
+	<input type="button" onclick="" value="8">
+	<input type="button" onclick="" value="9">
+	<input type="button" onclick="" value="0">
+	<input type="button" onclick="" value="-">
+	<input type="button" onclick="" value="=">
+	<input type="button" onclick="" value="backspace">
+</div> -->
+
+<!-- The Modal -->
+<div id="surrounding">
+	<!-- Modal content -->
+	<div id="myKeyboard">
+		<ul class="row">
+			<li class="close"><a onclick="closeKeyboard()">&#9747;</a></li>
+		</ul>
+		<ul class="row">
+			<li><a onclick="typeKey('&#96;')">&#96;</a></li>
+		  	<li><a onclick="typeKey('1')">1</a></li>
+		  	<li><a onclick="typeKey('2')">2</a></li>
+		  	<li><a onclick="typeKey('3')">3</a></li>
+		  	<li><a onclick="typeKey('4')">4</a></li>
+		  	<li><a onclick="typeKey('5')">5</a></li>
+		  	<li><a onclick="typeKey('6')">6</a></li>
+		  	<li><a onclick="typeKey('7')">7</a></li>
+		  	<li><a onclick="typeKey('8')">8</a></li>
+		  	<li><a onclick="typeKey('9')">9</a></li>
+		  	<li><a onclick="typeKey('0')">0</a></li>
+		  	<li><a onclick="typeKey('-')">-</a></li>
+		  	<li><a onclick="typeKey('=')">=</a></li>
+		  	<li><a onclick="backspace()" style="padding: 5px 7.75px;">Backspace</a></li>
+		</ul>
+
+		<ul class="row r2">
+		  	<li><a style="padding: 5px 26.25px;" onclick="typeKey('&nbsp;&nbsp;&nbsp;&nbsp;')">Tab</a></li>
+		  	<li><a onclick="typeKey('q')">q</a></li>
+		  	<li><a onclick="typeKey('w')">w</a></li>
+		  	<li><a onclick="typeKey('e')">e</a></li>
+		  	<li><a onclick="typeKey('r')">r</a></li>
+		  	<li><a onclick="typeKey('t')">t</a></li>
+		  	<li><a onclick="typeKey('y')">y</a></li>
+		  	<li><a onclick="typeKey('u')">u</a></li>
+		  	<li><a onclick="typeKey('i')">i</a></li>
+		  	<li><a onclick="typeKey('o')">o</a></li>
+		  	<li><a onclick="typeKey('p')">p</a></li>
+		  	<li><a onclick="typeKey('[')">[</a></li>
+		  	<li><a onclick="typeKey(']')">]</a></li>
+			<li><a onclick="typeKey('&#8726;')">\</a></li>
+		</ul>
+
+		<ul class="row">
+		 	<li><a onclick="capsLk()" style="padding: 5px 24px">CapsLk</a></li>
+		  	<li><a onclick="typeKey('a')">a</a></li>
+		  	<li><a onclick="typeKey('s')">s</a></li>
+		  	<li><a onclick="typeKey('d')">d</a></li>
+		  	<li><a onclick="typeKey('f')">f</a></li>
+		  	<li><a onclick="typeKey('g')">g</a></li>
+		  	<li><a onclick="typeKey('h')">h</a></li>
+		  	<li><a onclick="typeKey('j')">j</a></li>
+		  	<li><a onclick="typeKey('k')">k</a></li>
+		  	<li><a onclick="typeKey('l')">l</a></li>
+		  	<li><a onclick="typeKey('&#894;')">;</a></li>
+		  	<li><a onclick="typeKey('&#900;')">'</a></li>
+		  	<li><a onclick="closeKeyboard()" style="padding: 5px 24.1px;">Enter</a></li>
+		</ul>
+
+		<ul class="row">
+		 	<li><a onclick="shift()" style="padding: 5px 36.5px;">Shift</a></li>
+		  	<li><a onclick="typeKey('z')">z</a></li>
+		  	<li><a onclick="typeKey('x')">x</a></li>
+		  	<li><a onclick="typeKey('c')">c</a></li>
+		  	<li><a onclick="typeKey('v')">v</a></li>
+		  	<li><a onclick="typeKey('b')">b</a></li>
+		  	<li><a onclick="typeKey('n')">n</a></li>
+		  	<li><a onclick="typeKey('m')">m</a></li>
+		  	<li><a onclick="typeKey(',')">,</a></li>
+		  	<li><a onclick="typeKey('.')">.</a></li>
+		  	<li><a onclick="typeKey('&#47;')">/</a></li>
+		  	<li><a onclick="shift()" style="padding: 5px 36.75px;">Shift</a></li>
+		</ul>
+
+		<ul class="row space">
+			<li><a onclick="typeKey('&nbsp;')">Space</a></li>
+		</ul>
+	</div>
+
+</div>
+
+<div id="capsLk">
+	<div id="myKeyboard">
+		<ul class="row">
+			<li class="close"><a onclick="closeKeyboard()">&#9747;</a></li>
+		</ul>
+		<ul class="row">
+			<li><a onclick="typeKey('&#96;')">&#96;</a></li>
+		  	<li><a onclick="typeKey('1')">1</a></li>
+		  	<li><a onclick="typeKey('2')">2</a></li>
+		  	<li><a onclick="typeKey('3')">3</a></li>
+		  	<li><a onclick="typeKey('4')">4</a></li>
+		  	<li><a onclick="typeKey('5')">5</a></li>
+		  	<li><a onclick="typeKey('6')">6</a></li>
+		  	<li><a onclick="typeKey('7')">7</a></li>
+		  	<li><a onclick="typeKey('8')">8</a></li>
+		  	<li><a onclick="typeKey('9')">9</a></li>
+		  	<li><a onclick="typeKey('0')">0</a></li>
+		  	<li><a onclick="typeKey('-')">-</a></li>
+		  	<li><a onclick="typeKey('=')">=</a></li>
+		  	<li><a onclick="backspace()" style="padding: 5px 7.75px;">Backspace</a></li>
+		</ul>
+
+		<ul class="row">
+		  	<li><a style="padding: 5px 19.5px;" onclick="typeKey('&nbsp;&nbsp;&nbsp;&nbsp;')">Tab</a></li>
+		  	<li><a onclick="typeKey('Q')">Q</a></li>
+		  	<li><a onclick="typeKey('W')">W</a></li>
+		  	<li><a onclick="typeKey('E')">E</a></li>
+		  	<li><a onclick="typeKey('R')">R</a></li>
+		  	<li><a onclick="typeKey('T')">T</a></li>
+		  	<li><a onclick="typeKey('Y')">Y</a></li>
+		  	<li><a onclick="typeKey('U')">U</a></li>
+		  	<li><a onclick="typeKey('I')">I</a></li>
+		  	<li><a onclick="typeKey('O')">O</a></li>
+		  	<li><a onclick="typeKey('P')">P</a></li>
+		  	<li><a onclick="typeKey('[')">[</a></li>
+		  	<li><a onclick="typeKey(']')">]</a></li>
+			<li><a onclick="typeKey('&#8726;')">\</a></li>
+		</ul>
+
+		<ul class="row">
+		 	<li><a onclick="capsLk()">CapsLk</a></li>
+		  	<li><a onclick="typeKey('A')">A</a></li>
+		  	<li><a onclick="typeKey('S')">S</a></li>
+		  	<li><a onclick="typeKey('D')">D</a></li>
+		  	<li><a onclick="typeKey('F')">F</a></li>
+		  	<li><a onclick="typeKey('G')">G</a></li>
+		  	<li><a onclick="typeKey('H')">H</a></li>
+		  	<li><a onclick="typeKey('J')">J</a></li>
+		  	<li><a onclick="typeKey('K')">K</a></li>
+		  	<li><a onclick="typeKey('L')">L</a></li>
+		  	<li><a onclick="typeKey('&#894;')">;</a></li>
+		  	<li><a onclick="typeKey('&#900;')">'</a></li>
+		  	<li><a onclick="closeKeyboard()" style="padding: 5px 16.25px;">Enter</a></li>
+		</ul>
+
+		<ul class="row">
+		 	<li><a onclick="shift()" style="padding: 5px 31.1px;">Shift</a></li>
+		  	<li><a onclick="typeKey('Z')">Z</a></li>
+		  	<li><a onclick="typeKey('X')">X</a></li>
+		  	<li><a onclick="typeKey('C')">C</a></li>
+		  	<li><a onclick="typeKey('V')">V</a></li>
+		  	<li><a onclick="typeKey('B')">B</a></li>
+		  	<li><a onclick="typeKey('N')">N</a></li>
+		  	<li><a onclick="typeKey('M')">M</a></li>
+		  	<li><a onclick="typeKey(',')">,</a></li>
+		  	<li><a onclick="typeKey('.')">.</a></li>
+		  	<li><a onclick="typeKey('&#47;')">/</a></li>
+		  	<li><a onclick="shift()" style="padding: 5px 31.5px;">Shift</a></li>
+		</ul>
+
+		<ul class="row space">
+			<li><a onclick="typeKey('&nbsp;')">Space</a></li>
+		</ul>
+	</div>
+
+</div>
+
+
+<div id="shift">
+	<div id="myKeyboard">
+		<ul class="row">
+			<li class="close"><a onclick="closeKeyboard()">&#9747;</a></li>
+		</ul>
+		<ul class="row">
+			<li><a onclick="typeKey('&#126;')">&#126;</a></li>
+		  	<li><a onclick="typeKey('&#33;')">&#33;</a></li>
+		  	<li><a onclick="typeKey('&#64;')">&#64;</a></li>
+		  	<li><a onclick="typeKey('&#35;')">&#35;</a></li>
+		  	<li><a onclick="typeKey('&#36;')">&#36;</a></li>
+		  	<li><a onclick="typeKey('&#37;')">&#37;</a></li>
+		  	<li><a onclick="typeKey('&#136;')">&#136;</a></li>
+		  	<li><a onclick="typeKey('&#38;')">&#38;</a></li>
+		  	<li><a onclick="typeKey('&#42;')">&#42;</a></li>
+		  	<li><a onclick="typeKey('&#40;')">&#40;</a></li>
+		  	<li><a onclick="typeKey('&#41;')">&#41;</a></li>
+		  	<li><a onclick="typeKey('_')">_</a></li>
+		  	<li><a onclick="typeKey('+')">+</a></li>
+		  	<li><a onclick="backspace()" style="padding: 5px 2px;">Backspace</a></li>
+		</ul>
+
+		<ul class="row">
+		  	<li><a style="padding: 5px 17.75px;" onclick="typeKey('&nbsp;&nbsp;&nbsp;&nbsp;')">Tab</a></li>
+		  	<li><a onclick="typeKey('Q')">Q</a></li>
+		  	<li><a onclick="typeKey('W')">W</a></li>
+		  	<li><a onclick="typeKey('E')">E</a></li>
+		  	<li><a onclick="typeKey('R')">R</a></li>
+		  	<li><a onclick="typeKey('T')">T</a></li>
+		  	<li><a onclick="typeKey('Y')">Y</a></li>
+		  	<li><a onclick="typeKey('U')">U</a></li>
+		  	<li><a onclick="typeKey('I')">I</a></li>
+		  	<li><a onclick="typeKey('O')">O</a></li>
+		  	<li><a onclick="typeKey('P')">P</a></li>
+		  	<li><a onclick="typeKey('{')">{</a></li>
+		  	<li><a onclick="typeKey('}')">}</a></li>
+			<li><a onclick="typeKey('&#124;')">|</a></li>
+		</ul>
+
+		<ul class="row">
+		 	<li><a>CapsLk</a></li>
+		  	<li><a onclick="typeKey('A')">A</a></li>
+		  	<li><a onclick="typeKey('S')">S</a></li>
+		  	<li><a onclick="typeKey('D')">D</a></li>
+		  	<li><a onclick="typeKey('F')">F</a></li>
+		  	<li><a onclick="typeKey('G')">G</a></li>
+		  	<li><a onclick="typeKey('H')">H</a></li>
+		  	<li><a onclick="typeKey('J')">J</a></li>
+		  	<li><a onclick="typeKey('K')">K</a></li>
+		  	<li><a onclick="typeKey('L')">L</a></li>
+		  	<li><a onclick="typeKey('&#58;')">:</a></li>
+		  	<li><a onclick="typeKey('&#34;')">&#34;</a></li>
+		  	<li><a onclick="closeKeyboard()" style="padding: 5px 14.25px;">Enter</a></li>
+		</ul>
+
+		<ul class="row">
+		 	<li><a onclick="shift()" style="padding: 5px 28px;">Shift</a></li>
+		  	<li><a onclick="typeKey('Z')">Z</a></li>
+		  	<li><a onclick="typeKey('X')">X</a></li>
+		  	<li><a onclick="typeKey('C')">C</a></li>
+		  	<li><a onclick="typeKey('V')">V</a></li>
+		  	<li><a onclick="typeKey('B')">B</a></li>
+		  	<li><a onclick="typeKey('N')">N</a></li>
+		  	<li><a onclick="typeKey('M')">M</a></li>
+		  	<li><a onclick="typeKey('&#60;')">&#60;</a></li>
+		  	<li><a onclick="typeKey('&#62;')">&#62;</a></li>
+		  	<li><a onclick="typeKey('&#63;')">&#63;</a></li>
+		  	<li><a onclick="shift()" style="padding: 5px 28.25px;">Shift</a></li>
+		</ul>
+
+		<ul class="row space">
+			<li><a onclick="typeKey('&nbsp;')">Space</a></li>
+		</ul>
+	</div>
+
+</div>
+
+<!--
+<div id='keyboard'>
+	<br>
+	<ul class="row">
+		<li class="close"><a href="">&#9747;</a></li>
+	</ul>
+	<ul class="row">
+		<li><a href="">~</a></li>
+	  	<li><a href="">1</a></li>
+	  	<li><a href="">2</a></li>
+	  	<li><a href="">3</a></li>
+	  	<li><a href="">4</a></li>
+	  	<li><a href="">5</a></li>
+	  	<li><a href="">6</a></li>
+	  	<li><a href="">7</a></li>
+	  	<li><a href="">8</a></li>
+	  	<li><a href="">9</a></li>
+	  	<li><a href="">0</a></li>
+	  	<li><a href="">-</a></li>
+	  	<li><a href="" style="padding: 5px 28px;">backspace</a></li>
+	</ul>
+
+	<ul class="row">
+	  	<li><a href="" >Tab</a></li>
+	  	<li><a href="" class="second">Q</a></li>
+	  	<li><a href="" class="second">W</a></li>
+	  	<li><a href="" class="second">E</a></li>
+	  	<li><a href="" class="second">R</a></li>
+	  	<li><a href="" class="second">T</a></li>
+	  	<li><a href="" class="second">Y</a></li>
+	  	<li><a href="" class="second">U</a></li>
+	  	<li><a href="" class="second">Y</a></li>
+	  	<li><a href="" class="second">U</a></li>
+	  	<li><a href="" class="second">I</a></li>
+	  	<li><a href="" class="second">O</a></li>
+	  	<li><a href="" class="second">P</a></li>
+	  	<li><a href="" class="second">[</a></li>
+	  	<li><a href="" class="second">]</a></li>
+		<li><a href="" class="second">\</a></li>
+	</ul>
+
+	<ul class="row">
+	 	<li><a href="">CapsLk</a></li>
+	  	<li><a href="">A</a></li>
+	  	<li><a href="">S</a></li>
+	  	<li><a href="">D</a></li>
+	  	<li><a href="">F</a></li>
+	  	<li><a href="">G</a></li>
+	  	<li><a href="">H</a></li>
+	  	<li><a href="">J</a></li>
+	  	<li><a href="">K</a></li>
+	  	<li><a href="">L</a></li>
+	  	<li><a href="">;</a></li>
+	  	<li><a href="">'</a></li>
+	  	<li><a href="" style="padding: 5px 16.25px;">Enter</a></li>
+	</ul>
+
+	<ul class="row">
+	 	<li><a href="" style="padding: 5px 31.25px;">Shift</a></li>
+	  	<li><a href="">Z</a></li>
+	  	<li><a href="">X</a></li>
+	  	<li><a href="">C</a></li>
+	  	<li><a href="">V</a></li>
+	  	<li><a href="">B</a></li>
+	  	<li><a href="">N</a></li>
+	  	<li><a href="">M</a></li>
+	  	<li><a href="">,</a></li>
+	  	<li><a href="">.</a></li>
+	  	<li><a href="">/</a></li>
+	  	<li><a href="" style="padding: 5px 31.25px;">Shift</a></li>
+	</ul>
+
+	<ul class="row space">
+		<li><a href="">Space</a></li>
+	</ul>
+
+
+</div>
+-->
+
+</body>
+</html>

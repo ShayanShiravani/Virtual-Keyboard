@@ -1,0 +1,113 @@
+
+body {
+    background-image: url("../images/Computer-Background-CB001.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.row {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 5px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+li a:hover {
+    background-color: #6495ED;
+}
+
+li a:active {
+    background-color: #8A2BE2;
+}
+
+
+#keyboard {
+	width: 600px;
+}
+
+.space{
+	list-style-type: none;
+	margin: auto;
+    padding: 0px 178px;
+    overflow: hidden;
+}
+
+.space li{
+	background-color: #2F4F4F;
+}
+
+.space li a{
+	padding: 5px 100px;
+}
+
+.close{
+	float: right;
+	background-color: #DC143C;
+}
+
+.close a:hover{
+	background-color: #FF0000;
+}
+
+
+/* The Modal (background) */
+#surrounding, #capsLk, #shift{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+#myKeyboard {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 600px;
+}
+
+.in{
+	opacity: 0.7;
+	text-align: center;
+	width: 500px;
+	height: 500px;
+	margin:auto;
+	background-color: #00cdcd;
+}
+
+#input{
+	border: 2px solid #20B2AA;
+	height: 20px;
+}
+
+.r2 li a{
+    padding: 5px 16.75px;
+}
+
+
+
